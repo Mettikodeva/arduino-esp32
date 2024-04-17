@@ -4,6 +4,8 @@
 # set ARDUINO_SKIP_IDF_VERSION_CHECK environment variable to 1. For example:
 #   export ARDUINO_SKIP_IDF_VERSION_CHECK=1
 #   idf.py build
+cmake_minimum_required(VERSION 3.16)
+
 
 set(min_supported_idf_version "5.1.0")
 set(max_supported_idf_version "5.1.99")
@@ -107,7 +109,65 @@ set(ARDUINO_ALL_LIBRARIES
   WiFi
   WiFiProv
   Wire
+  ros_lib
+  SoftwareSerial
   )
+
+set(
+  ARDUINO_LIBRARY_ros_lib_SRCS
+  libraries/ros_lib/src/duration.cpp
+  libraries/ros_lib/src/time.cpp
+)
+set(
+  ARDUINO_LIBRARY_SoftwareSerial_SRCS
+  libraries/SoftwareSerial/src/SoftwareSerial.cpp
+)
+
+# set(
+#   includedirs
+#   actionlib
+#   actionlib_msgs
+#   actionlib_tutorials
+#   bond
+#   controller_manager_msgs
+#   control_msgs
+#   control_toolbox
+#   diagnostic_msgs
+#   dynamic_reconfigure
+#   examples
+#   gazebo_msgs
+#   geometry_msgs
+#   laser_assembler
+#   map_msgs
+#   nav_msgs
+#   nodelet
+#   pcl_msgs
+#   polled_camera
+#   ros
+#   roscpp
+#   roscpp_tutorials
+#   rosgraph_msgs
+#   rospy_tutorials
+#   rosserial_arduino
+#   rosserial_mbed
+#   rosserial_msgs
+#   rviz
+#   sensor_msgs
+#   shape_msgs
+#   smach_msgs
+#   std_msgs
+#   std_srvs
+#   stereo_msgs
+#   tests
+#   tf
+#   tf2_msgs
+#   theora_image_transport
+#   topic_tools
+#   trajectory_msgs
+#   turtle_actionlib
+#   turtlesim
+#   visualization_msgs
+# )
 
 set(ARDUINO_LIBRARY_ArduinoOTA_SRCS libraries/ArduinoOTA/src/ArduinoOTA.cpp)
 set(ARDUINO_LIBRARY_ArduinoOTA_REQUIRES esp_https_ota)
