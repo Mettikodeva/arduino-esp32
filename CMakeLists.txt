@@ -113,7 +113,11 @@ set(ARDUINO_ALL_LIBRARIES
   WiFiProv
   Wire
   ros_lib
-  SoftwareSerial
+  # SoftwareSerial
+  I2Cdev
+  MPU6050
+  # DabbleESP32
+  # mpu6050
   )
 
 set(
@@ -121,10 +125,42 @@ set(
   libraries/ros_lib/src/duration.cpp
   libraries/ros_lib/src/time.cpp
 )
+# set(
+#   ARDUINO_LIBRARY_SoftwareSerial_SRCS
+#   libraries/SoftwareSerial/src/SoftwareSerial.cpp
+# )
 set(
-  ARDUINO_LIBRARY_SoftwareSerial_SRCS
-  libraries/SoftwareSerial/src/SoftwareSerial.cpp
+  ARDUINO_LIBRARY_I2Cdev_SRCS
+  libraries/I2Cdev/src/I2Cdev.cpp
 )
+set (ARDUINO_LIBRARY_MPU6050_SRCS
+  libraries/MPU6050/src/MPU6050.cpp
+  libraries/MPU6050/src/MPU6050_6Axis_MotionApps20.cpp
+  libraries/MPU6050/src/MPU6050_9Axis_MotionApps41.cpp
+  libraries/MPU6050/src/MPU6050_6Axis_MotionApps612.cpp
+)
+
+# set(
+#   ARDUINO_LIBRARY_DabbleESP32_SRCS
+#   libraries/DabbleESP32/src/DabbleESP32.cpp
+#   libraries/DabbleESP32/src/CameraModule.cpp
+#   libraries/DabbleESP32/src/ColorDetectorModule.cpp
+#   libraries/DabbleESP32/src/DabbleInputs.cpp
+#   libraries/DabbleESP32/src/DabblePrint.cpp
+#   libraries/DabbleESP32/src/DabblePrintln.cpp
+#   libraries/DabbleESP32/src/DataLoggerModule.cpp
+#   libraries/DabbleESP32/src/esp32BLEUtilities.cpp
+#   libraries/DabbleESP32/src/GamePadModule.cpp
+#   libraries/DabbleESP32/src/InternetModule.cpp
+#   libraries/DabbleESP32/src/LedControlModule.cpp
+#   libraries/DabbleESP32/src/ModuleParent.cpp
+#   libraries/DabbleESP32/src/motorControls.cpp
+#   libraries/DabbleESP32/src/MusicModule.cpp
+#   libraries/DabbleESP32/src/NotifyAndSMSModule.cpp
+#   libraries/DabbleESP32/src/PinMonitorModule.cpp
+#   libraries/DabbleESP32/src/SensorModule.cpp
+#   libraries/DabbleESP32/src/TerminalModule.cpp
+# )
 
 # set(
 #   includedirs
